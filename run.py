@@ -1,8 +1,14 @@
 import os
-from flask import Flask
+from flask import Flask, redirect
 
 app = Flask(__name__)
+messages = []
 
+def add_messages(username, message):
+    messages.append("{}:{}".format(username, message))
+
+def get_all_messages():
+    return "<br>".join(messages)
 
 @app.route('/')
 def index():
@@ -11,11 +17,12 @@ def index():
 
 @app.route('/<username>')
 def user(username):
-    return "hi " + username
+    return "<h1>welcome, {}</h1>{}".format(username, get_all_messages())
 
 @app.route('/<username>/<message>')
 def send_message(username, message):
-    return "{0}: {1}".format(username, message)
+    add_messages(username, message)
+    return redirect("/" + username)
 
 
 if __name__ == "__main__":
