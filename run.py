@@ -25,13 +25,17 @@ def index():
 
 @app.route('/chat/<username>', methods=["GET", "POST"])
 def user(username):
-    if request.method == "POST":
+    if request.method == "POST" and request.form['submit_button'] == 'getmsg':
         username = session["username"]
         message = request.form["message"]
         add_message(username, message)
         return redirect(url_for("user", username=session["username"]))
+    elif request.method == "POST" and request.form['submit_button'] == 'clear':
+        messages.clear()
+        return redirect(url_for("user", username=session["username"]))
     return render_template(
         "chat.html", username=username, chat_messages=messages)
+
 
 
 app.run(
