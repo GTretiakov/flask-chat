@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap');
+
+.main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-family: 'Yeon Sung', sans-serif;
+    font-size: 25px;
+}
+
+#username {
+    text-align: center; 
+    vertical-align: middle;
+}
+
+#usrlabel {
+    text-align: center; 
+    vertical-align: middle;
+    margin: 0;
+}
+
+

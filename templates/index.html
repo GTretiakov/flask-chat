@@ -1,12 +1,27 @@
 <html>
     <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}" type="text/css">
         <title>Home</title>
+        <script>
+            function validateForm() {
+            var x = document.forms["myForm"]["username"].value;
+            if (x == "") {
+                alert("Please enter your username!");
+                return false;
+            }
+            }
+        </script>
     </head>
     <body>
-        <form method="POST">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username">
-            <button>Go to chat!</button>
-        </form>
+
+        <div class="main">
+            <form name="myForm" onsubmit="return validateForm()" method="POST">
+                <label id="usrlabel" for="username">Username:</label>
+                <input type="text" id="username" name="username">
+                <button class="btn btn-primary">Go to chat!</button>
+            </form>
+        </div>
+
     </body>
 </html>
