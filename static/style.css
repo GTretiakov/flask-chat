@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap');
-
+/* //-----index.html-----// */
 .main {
     position: absolute;
     top: 50%;
@@ -20,4 +20,10 @@
     margin: 0;
 }
 
-
+/* //-----chat.html-----// */
+.chat {
+    width: 50%;
+    margin: 0 auto;
+    font-family: 'Yeon Sung', sans-serif;
+    margin-top: 20px;
+}

@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}" type="text/css">
     <title>Chat page for {{ username }}</title>
 </head>
 <body>
-    <h1>Welcome, {{ username }}</h1>
-    <form method="POST">
-        <textarea cols="50" rows="4" name="message" id="message"></textarea>
-        <br>
-        <button type="submit" name="submit_button" value="getmsg">Send Message</button>
-    </form>
-    <form method="POST">
-        <button type="submit" name="submit_button" value="clear">Clear</button>
-    </form>
-    
-    {% for message in chat_messages %}
-        <p>({{ message.timestamp }}) {{ message.from }}: {{ message.message }}</p>
-    {% endfor %}
+    <div class="chat">
+        <h1>Welcome, {{ username }}</h1>
+        <form method="POST">
+            <textarea cols="50" rows="4" name="message" id="message"></textarea>
+            <br>
+            <button class="btn btn-primary" type="submit" name="submit_button" value="getmsg">Send Message</button>
+        </form>
+        <form method="POST">
+            <button class="btn btn-danger type="submit" name="submit_button" value="clear">Clear</button>
+        </form>
+        
+        {% for message in chat_messages %}
+            <p>({{ message.timestamp }}) {{ message.from }}: {{ message.message }}</p>
+        {% endfor %}
+    </div>
     <script>
         let textbox = document.getElementById("message")
         let timer = setTimeout(function() {
